@@ -5,7 +5,11 @@ use App\Models\contact;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Uproduct;
+use App\Models\Book;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 
 use Illuminate\Http\Request;
@@ -14,7 +18,8 @@ class HomeController extends Controller
 {
     public function viewIndex()
     {
-        return view('frontend.index');
+        $uproducts=Uproduct::all();
+        return view('frontend.index', compact('uproducts'));
     }
     public function viewProducts($id)
     {
@@ -78,7 +83,82 @@ class HomeController extends Controller
 
     public function viewcart()
     {
-        return view('frontend.cart');
+        $user = Auth::user();
+        $cartItems = Cart::where('user_id', $user->id)->with('product')->get();
+        return view('frontend.cart', ['cartItems' => $cartItems]);
+    }
+
+    public function viewBying()
+    {
+        $cartItems = Cart::all();
+        return view('frontend.byingpage', compact('cartItems'));
+    }
+
+
+    public function viewSuccess()
+    {
+        $cartItems = Cart::all();
+        return view('frontend.success', compact('cartItems'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+    // booking
+
+    public function viewform()
+    {
+        $user = Auth::user();
+        $cartItems = Cart::where('user_id', $user->id)->with('product')->get();
+        return view('frontend.forms', compact('user', 'cartItems' ));
+    }
+
+    public function addbooking(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'country' => 'required',
+            'state' => 'required',
+            'pin' => 'required',
+            'product_id' => 'required',
+            'quantity' => 'required',
+        ]);
+    
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors(), 'formErrors');
+        }
+
+
+
+        $booking = new Book();
+
+        $booking->firstname = $request->firstname;
+        $booking->lastname = $request->lastname;
+        $booking->email = $request->email;
+        $booking->country = $request->country;
+        $booking->state = $request->state;
+        $booking->pin = $request->pin;
+        $booking->product_id = $request->product_id;
+        $booking->quantity = $request->quantity;
+
+
+        $booking->save();
+
+        session()->flash('success', 'Data Added Successfully.');
+
+
+        return redirect()->route('success');
+
     }
 
    

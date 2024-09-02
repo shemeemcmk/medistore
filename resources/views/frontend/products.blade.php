@@ -52,9 +52,9 @@
                     <form action="{{ route('add-to-cart') }}" method="POST" style="display:inline;">
                       @csrf
                       <input type="hidden" name="product_id" value="{{ $d->id }}">
-                      <input type="number" name="quantity" value="" min="1" style="width: 30%;">
+                      <input type="number"  id="quantity" name="quantity" value="" min="1" style="width: 30%;">
                       <button type="submit" class="btn btn-link p-0"><i class="fa fa-shopping-cart"></i></button>
-                      <a href="{{route("cart")}}"><i class="fa fa-shopping-cart"></i></a>
+                      
                   </form>   
                 </div>
             </div>

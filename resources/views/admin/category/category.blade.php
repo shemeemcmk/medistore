@@ -31,10 +31,10 @@
                     <td>{{$a->catagorie_name}}</td>
                     <td><img src="{{asset($a->image)}}" style="border-radius:50%; width: 33px; height: 33px;" alt="" class="circle responsive-img"></td>
                     <td><a href="{{route('category-editform',$a->id)}}" class="text-warning font-weight-bold text-xs" style="font-size: 18px;" data-toggle="tooltip" data-original-title="Edit user">
-                      <i class="fa fa-edit">edit</i>
+                      <i class="fa fa-edit"></i>
                   </a>
                   <a href="{{route('delete-product',$a->id)}}" class="text-danger font-weight-bold text-xs " style="font-size: 18px; margin-left: 20px;" data-toggle="tooltip" data-original-title="Edit user">
-                      <i class="fa fa-trash">delete</i>
+                      <i class="fa fa-trash"></i>
                   </a>
                   </td>
                   </tr>

@@ -1,4 +1,4 @@
-@extends('frontend.layout.header')
+{{-- @extends('frontend.layout.header')
 @section('content')
 
 
@@ -49,14 +49,8 @@
                             </td>
                             <td class="text-center text-lg text-medium">${{ $details['price'] * $details['quantity'] }}</td>
                             {{-- <input type="number" name="quantity" value="{{ $product['quantity'] }}"> --}}
-                            <td class="text-center">
+                            {{-- <td class="text-center">
                                 <a class="remove-from-cart" href="{{ route('remove-from-cart', $id) }}" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a>
-                                <form action="{{ route('update-cart') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $id }}" >
-                                    <input type="number" name="quantity" value="{{ $details['quantity'] }}" min="1" class="form-control quantity" style="width: 70px; display: inline-block;">
-                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -74,4 +68,77 @@
 
 
 
-  @endsection
+  @endsection --}} --}}
+
+
+  @extends('frontend.layout.header')
+@section('content')
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container padding-bottom-3x mb-1">
+    <!-- Alert-->
+    <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
+        <span class="alert-close" data-dismiss="alert"></span>
+        <img class="d-inline align-center" src="data:image/svg+xml;utf8;base64,..." width="18" height="18" alt="Medal icon">
+        &nbsp;&nbsp;With this purchase you will earn <strong>290</strong> Reward Points.
+    </div>
+    <div class="container padding-bottom-3x mb-1">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+    <!-- Shopping Cart-->
+    <div class="table-responsive shopping-cart">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Subtotal</th>
+                    <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="{{route('baying')}}">By now</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($cartItems as $item)
+                    <tr>
+                        <td>
+                            <div class="product-item">
+                                <a class="product-thumb" href="#"><img src="{{ $item->product->image }}" alt="Product" style="width: 20%; border-radius:50px;"></a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="#">{{ $item->product->name }}</a></h4>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="#">{{ $item->product->price }}</a></h4>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            {{ $item->quantity }}
+                        </td>
+                        <td class="text-center text-lg text-medium">${{ $item->product->price * $item->quantity }}</td>
+                        <td class="text-center">
+                            <a class="remove-from-cart" href="{{ route('remove-from-cart', $item->product_id) }}" data-toggle="tooltip" title="Remove item"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="6" class="text-center">Your cart is empty.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+    <div class="shopping-cart-footer">
+        <div class="column"><a class="btn btn-success" href="{{ route('categories') }}">Back to Shopping</a></div>
+    </div>
+</div>
+</div>
+
+@endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\contact;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -18,5 +19,10 @@ class AdminController extends Controller
         $contact = contact::all();
         return view('admin.contact.contact', compact('contact'));
          
+    }
+    public function viewbookings()
+    {
+        $booking = Book::all();
+        return view('admin.booking.bookings', compact('booking'));
     }
 }

@@ -57,46 +57,42 @@
           <h2>Our Products</h2>
         </div>
 
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="icon-box">
-              <div class="icon"><i class="fas fa-heartbeat"></i></div>
-              <h4><a href="">Face Wash</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
+        <div class="container mt-5 mb-5">
+          <div class="row">
+      @foreach ($uproducts as $d)
+        <div class="product-card">
+          <div class="product-tumb">
+              <img src="{{$d->image}}" alt="" style="border-image-width: 80%; border-image-hight: 80%">
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="icon-box">
-              <div class="icon"><i class="fas fa-pills"></i></div>
-              <h4><a href="">Medicine</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
+          <div class="product-details">
+              <span class="product-catagory"></span>
+              <h4><a href="">{{$d->name}}</a></h4>
+              <p></p>
+              <p>{{$d->price}}</p>
+              <div class="product-bottom-details">
+                  <div class="product-price"><small></small>{{$d->rating}}</div>
+                  <div class="product-links">
+                      <a href="{{route('productdetials')}}"><i class="fa fa-heart"></i></a>
+                      <form action="{{ route('add-to-cart') }}" method="POST" style="display:inline;">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $d->id }}">
+                        <input type="number"  id="quantity" name="quantity" value="" min="1" style="width: 30%;">
+                        <button type="submit" class="btn btn-link p-0"><i class="fa fa-shopping-cart"></i></button>
+                        
+                    </form>   
+                  </div>
+              </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="fas fa-hospital-user"></i></div>
-              <h4><a href="">makeup Products</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
+      </div>  
+      @endforeach
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="fas fa-dna"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
-
         </div>
 
       </div>
     </section><!-- End Services Section -->
 
     <!-- ======= Appointment Section ======= -->
-    <section id="appointment" class="appointment section-bg">
+    {{-- <section id="appointment" class="appointment section-bg">
       <div class="container">
 
         <div class="section-title">
@@ -157,7 +153,7 @@
         </form>
 
       </div>
-    </section><!-- End Appointment Section -->
+    </section><!-- End Appointment Section --> --}}
 
 
 

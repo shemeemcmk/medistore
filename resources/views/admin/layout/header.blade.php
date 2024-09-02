@@ -72,6 +72,23 @@
                     
                 </li>
 
+
+                <li class="sidebar-item  ">
+                    <a href="{{route('view-uproduct')}}" class='sidebar-link'>
+                        <i data-feather="grid" width="20"></i> 
+                        <span>our products</span>
+                    </a>
+                    
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{{route('view-bookingss')}}" class='sidebar-link'>
+                        <i data-feather="grid" width="20"></i> 
+                        <span>orders</span>
+                    </a>
+                    
+                </li>
+
             
             
          

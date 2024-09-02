@@ -40,41 +40,34 @@
 
 <body>
 
-  <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
-    <div class="container d-flex justify-content-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
-        <i class="bi bi-phone"></i> +1 5589 55488 55
-      </div>
-      <div class="d-none d-lg-flex social-links align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
-    </div>
-  </div>
+
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="{{route('home')}}"><img src="assets\img\logo.png"></a></h1>
+      {{-- <h1 class="logo me-auto"><a href="{{route('home')}}"><img src="{{url('frontend\assets\img\house.png')}}"></a></h1> --}}
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="{{route('home')}}">Home</a></li>
-          <li><a class="nav-link scrollto active" href="{{route('categories')}}">catogories</a></li>
-          {{-- <li><a class="nav-link scrollto" href="{{route('products')}}">products</a></li> --}}
-          <li><a class="nav-link scrollto" href="{{route('contact')}}">Contact</a></li>
+        <ul class="lg-hide">
+          <li><a class="nav-link scrollto active" href="{{route('home')}}"><img src="{{url('frontend\assets\img\house.png')}}" style="width: 15%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route('categories')}}"><img src="{{url('frontend\assets\img\category.png')}}" style="width: 15%"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route('contact')}}"><img src="{{url('frontend\assets\img\products.png')}}" style="width: 15%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route("cart")}}"><img src="{{url('frontend\assets\img\shopping-bag.png')}}" style="width: 15%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route('booknow')}}"><img src="{{url('frontend\assets\img\verified.png')}}" style="width: 15%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route("logout")}}"><img src="{{url('frontend\assets\img\verified.png')}}" style="width: 15%;"></a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+      
 
-       <a href="{{route('booknow')}}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Book</span> medicine</a>
+{{--        
+       <li><a href="{{route("cart")}}"><i class="fa fa-shopping-cart fa-2x"></i></i></a></li>
+       <li><a href="{{route("logout")}}"><i class="fa fa-power-off fa-2x" ></i></a></li> --}}
+      
 
     </div>
   </header><!-- End Header -->
@@ -189,3 +182,8 @@
 </body>
 
 </html>
+
+
+
+
+
