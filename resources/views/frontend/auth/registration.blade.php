@@ -28,19 +28,19 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">First Name</label>
-                                            <input type="text" id="first-name-column" class="form-control" name="name">
+                                            <input type="text" id="first-name-column" class="form-control" name="name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="email-id-column">Email</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email">
+                                            <input type="email" id="email-id-column" class="form-control" name="email" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="password-column">Password</label>
-                                            <input type="password" id="password-column" class="form-control" name="password">
+                                            <input type="password" id="password-column" class="form-control" name="password" required>
                                         </div>
                                     </div>
                                     <!-- User Type Field -->
@@ -70,6 +70,21 @@
                                     <button class="btn btn-primary float-right">Submit</button>
                                 </div>
                             </form>
+                            
+                            <!-- Script to update role_id based on user type -->
+                            <script>
+                                function updateRoleId() {
+                                    var userType = document.getElementById('user-type-column').value;
+                                    var roleIdField = document.getElementById('role-id');
+                                    
+                                    if (userType === 'Normal User') {
+                                        roleIdField.value = '2';
+                                    } else if (userType === 'Delivery Boy') {
+                                        roleIdField.value = '3';
+                                    }
+                                }
+                            </script>
+                            
                         </div>
                     </div>
                 </div>

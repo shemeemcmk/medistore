@@ -37,6 +37,13 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<style>
+@media (max-width: 768px) {
+  #navbar ul li a img {
+    width: 15% !important; /* Reduce the size of images to 15% */
+  }
+}
+</style>
 
 <body>
 
@@ -44,8 +51,8 @@
 
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
+  <header id="header" class="fixed-top" style="margin-top: -30px;">
+    <div class="container d-flex align-items-center" >
 
       {{-- <h1 class="logo me-auto"><a href="{{route('home')}}"><img src="{{url('frontend\assets\img\house.png')}}"></a></h1> --}}
       <!-- Uncomment below if you prefer to use an image logo -->
@@ -53,20 +60,17 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul class="lg-hide">
-          <li><a class="nav-link scrollto active" href="{{route('home')}}"><img src="{{url('frontend\assets\img\house.png')}}" style="width: 15%;"></a></li>
-          <li><a class="nav-link scrollto active" href="{{route('categories')}}"><img src="{{url('frontend\assets\img\category.png')}}" style="width: 15%"></a></li>
-          <li><a class="nav-link scrollto active" href="{{route('contact')}}"><img src="{{url('frontend\assets\img\products.png')}}" style="width: 15%;"></a></li>
-          <li><a class="nav-link scrollto active" href="{{route("cart")}}"><img src="{{url('frontend\assets\img\shopping-bag.png')}}" style="width: 15%;"></a></li>
-          <li><a class="nav-link scrollto active" href="{{route('booknow')}}"><img src="{{url('frontend\assets\img\verified.png')}}" style="width: 15%;"></a></li>
-          <li><a class="nav-link scrollto active" href="{{route("logout")}}"><img src="{{url('frontend\assets\img\verified.png')}}" style="width: 15%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route('home')}}"><img src="{{url('frontend\assets\img\house.png')}}" style="width: 25%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route('categories')}}"><img src="{{url('frontend\assets\img\category.png')}}" style="width: 25%"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route('contact')}}"><img src="{{url('frontend\assets\img\contact_3298124.png')}}" style="width: 25%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route("cart")}}"><img src="{{url('frontend\assets\img\shopping-bag.png')}}" style="width: 25%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route('admin')}}"><img src="{{url('frontend\assets\img\user-gear.png')}}" style="width: 25%;"></a></li>
+          <li><a class="nav-link scrollto active" href="{{route("logout")}}"><img src="{{url('frontend\assets\img\verified.png')}}" style="width: 25%;"></a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       
 
-{{--        
-       <li><a href="{{route("cart")}}"><i class="fa fa-shopping-cart fa-2x"></i></i></a></li>
-       <li><a href="{{route("logout")}}"><i class="fa fa-power-off fa-2x" ></i></a></li> --}}
       
 
     </div>

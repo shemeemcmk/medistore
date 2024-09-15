@@ -74,7 +74,7 @@ Route::get('/baying', [HomeController::class, 'viewBying'])->name('baying');
 
 Route::get('/success', [HomeController::class, 'viewSuccess'])->name('success');
 
-});
+
 
 Route::get('admin',[AdminController::class, 'viewAdminindex'])->name('admin');
 
@@ -140,3 +140,4 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
+});
